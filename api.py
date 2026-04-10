@@ -55,6 +55,7 @@ def index(request: Request):
         m["league_name"] = LEAGUE_NAMES.get(m["competition"], m["competition"])
 
     return templates.TemplateResponse(
-        "index.html",
-        {"request": request, "matches": matches, "weekend_date": weekend_date},
+        request=request,
+        name="index.html",
+        context={"matches": matches, "weekend_date": weekend_date},
     )
