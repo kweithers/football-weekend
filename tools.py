@@ -16,17 +16,17 @@ def _get_headers() -> dict:
 
 
 def _get_weekend_range() -> tuple[str, str]:
-    """Return the upcoming Friday 00:00 UTC through Monday 00:00 UTC as date strings."""
-    today = datetime.now(timezone.utc)
-    # days_until_friday: 0=Mon,...,4=Fri
-    days_until_friday = (4 - today.weekday()) % 7
-    if days_until_friday == 0 and today.hour >= 0:
-        # Already Friday or beyond — use this weekend
-        pass
-    friday = today + timedelta(days=days_until_friday)
-    friday = friday.replace(hour=0, minute=0, second=0, microsecond=0)
-    monday = friday + timedelta(days=3)
-    return friday.strftime("%Y-%m-%d"), monday.strftime("%Y-%m-%d")
+    """Return Tuesday through the following Monday inclusive as date strings.
+
+    Always anchors to the most recent Tuesday, so the range is stable regardless
+    of what day the script is run.
+    """
+    today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    # days_since_tuesday: Tue=0, Wed=1, Thu=2, Fri=3, Sat=4, Sun=5, Mon=6
+    days_since_tuesday = (today.weekday() - 1) % 7
+    tuesday = today - timedelta(days=days_since_tuesday)
+    monday = tuesday + timedelta(days=6)
+    return tuesday.strftime("%Y-%m-%d"), monday.strftime("%Y-%m-%d")
 
 
 @tool
