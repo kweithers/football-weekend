@@ -12,9 +12,6 @@
 <body class="min-h-screen font-mono">
   <header class="border-b border-gray-800 py-6 px-4 text-center">
     <h1 class="text-3xl font-bold tracking-tight">⚽ Weekend Football Ranker</h1>
-    {% if weekend_date %}
-      <p class="text-gray-400 mt-1 text-sm">Week of {{ weekend_date }}</p>
-    {% endif %}
   </header>
 
   <main class="max-w-3xl mx-auto px-4 py-8">
@@ -27,7 +24,7 @@
         {% if day != ns.current_day %}
           {% set ns.current_day = day %}
           <h2 class="text-lg font-semibold text-gray-300 mt-8 mb-3 uppercase tracking-widest border-b border-gray-800 pb-1">
-            {{ day }}
+            {{ m.day_label }}
           </h2>
         {% endif %}
 

@@ -1,6 +1,7 @@
 """FastAPI backend — serves pre-generated weekly rankings from data/."""
 import json
 import os
+from datetime import datetime
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -50,9 +51,12 @@ def index(request: Request):
         # Extract date from filename: weekend_YYYY-MM-DD.json
         weekend_date = path.stem.replace("weekend_", "")
 
-    # Enrich with league names
+    # Enrich with league names and sort: chronologically by day, then score descending within each day
     for m in matches:
         m["league_name"] = LEAGUE_NAMES.get(m["competition"], m["competition"])
+        m["day_label"] = datetime.fromisoformat(m["kickoff"]).strftime("%A %-d %b")
+
+    matches.sort(key=lambda m: (m["kickoff"][:10], -m["excitement_score"]))
 
     return templates.TemplateResponse(
         request=request,
