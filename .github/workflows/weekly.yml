@@ -2,8 +2,8 @@ name: Generate Weekly Rankings
 
 on:
   schedule:
-    # Every Friday at 07:00 UTC
-    - cron: "0 7 * * 5"
+    # Every Tuesday at 07:00 UTC
+    - cron: "0 7 * * 2"
   workflow_dispatch:  # allow manual trigger
 
 jobs:
