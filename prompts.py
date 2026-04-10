@@ -11,7 +11,7 @@ A match is exciting if and only if the RESULT meaningfully affects one of:
 1. TITLE RACE: At least one team is in the top 3 AND within 6 points of 1st place.
 2. CHAMPIONS LEAGUE RACE: At least one team is in positions 3-7 AND within 5 points
    of the Champions League cutoff for that league:
-   - Premier League (PL): top 4 → 5th qualifies for Europa
+   - Premier League (PL): top 5
    - La Liga (PD): top 4
    - Bundesliga (BL1): top 4
    - Serie A (SA): top 4

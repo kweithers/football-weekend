@@ -10,7 +10,7 @@ def run_pipeline() -> list[RankedMatch]:
     data = fetch_all_leagues_data()
     league_data_str = format_league_data(data)
 
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-preview-04-17")
+    llm = ChatGoogleGenerativeAI(model="gemini-3-flash-preview")
     structured_llm = llm.with_structured_output(RankedMatchList)
 
     chain = ranking_prompt | structured_llm
