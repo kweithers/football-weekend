@@ -1,4 +1,4 @@
-from langchain_anthropic import ChatAnthropic
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 from aggregator import fetch_all_leagues_data
 from models import RankedMatch, RankedMatchList
@@ -10,7 +10,7 @@ def run_pipeline() -> list[RankedMatch]:
     data = fetch_all_leagues_data()
     league_data_str = format_league_data(data)
 
-    llm = ChatAnthropic(model="claude-sonnet-4-5")
+    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-preview-04-17")
     structured_llm = llm.with_structured_output(RankedMatchList)
 
     chain = ranking_prompt | structured_llm

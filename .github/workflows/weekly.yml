@@ -22,7 +22,7 @@ jobs:
       - name: Generate rankings
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: uv run python generate_weekly.py
 
       - name: Commit and push rankings
