@@ -87,7 +87,7 @@
               </div>
 
               <p class="font-semibold text-base">{{ m.home_team }} <span class="text-gray-400">vs</span> {{ m.away_team }}</p>
-              <p class="text-xs text-gray-400 mt-0.5">{{ m.kickoff[11:16] }} UTC</p>
+              <p class="text-xs text-gray-400 mt-0.5 kickoff-time" data-kickoff="{{ m.kickoff }}"></p>
               <p class="text-sm text-gray-300 mt-2 italic">{{ m.reasoning }}</p>
             </div>
           </div>
@@ -97,6 +97,15 @@
   </main>
 
   <script>
+    const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    document.querySelectorAll('.kickoff-time').forEach(el => {
+      const kickoff = new Date(el.dataset.kickoff);
+      const parts = new Intl.DateTimeFormat([], { hour: '2-digit', minute: '2-digit', timeZoneName: 'short', timeZone: userTZ }).formatToParts(kickoff);
+      const time = parts.find(p => p.type === 'hour').value + ':' + parts.find(p => p.type === 'minute').value;
+      const tz = parts.find(p => p.type === 'timeZoneName').value;
+      el.textContent = `${time} ${tz}`;
+    });
+
     const activeLeagues = new Set(
       [...document.querySelectorAll('.league-btn')].map(b => b.dataset.league)
     );
