@@ -25,6 +25,13 @@
     >{{ league }}</button>
     {% endfor %}
   </div>
+  <div class="max-w-3xl mx-auto px-4 pt-3 pb-2 flex flex-col items-center gap-2">
+    <span class="text-xs text-gray-500 uppercase tracking-widest">Order by</span>
+    <div class="flex gap-2">
+      <button id="sort-score" onclick="setSort('score')" class="sort-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors">Excitement Score</button>
+      <button id="sort-time" onclick="setSort('time')" class="sort-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-950 text-gray-500 hover:bg-gray-700 transition-colors">Kickoff Time</button>
+    </div>
+  </div>
   {% endif %}
 
   <main class="max-w-3xl mx-auto px-4 py-8">
@@ -64,7 +71,7 @@
           {% set bar_cls = "bg-gray-500" %}
         {% endif %}
 
-        <div class="match-card border-l-4 {{ accent }} rounded-r-lg p-4 mb-4" data-league="{{ m.league_name }}" data-day="{{ day }}">
+        <div class="match-card border-l-4 {{ accent }} rounded-r-lg p-4 mb-4" data-league="{{ m.league_name }}" data-day="{{ day }}" data-score="{{ m.excitement_score }}" data-kickoff="{{ m.kickoff }}">
           <div class="flex items-start justify-between gap-4">
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 flex-wrap mb-1">
@@ -122,6 +129,31 @@
         btn.classList.remove('bg-gray-950', 'text-gray-500', 'line-through');
       }
       applyFilter();
+    }
+
+    let currentSort = 'score';
+
+    function setSort(mode) {
+      currentSort = mode;
+      document.querySelectorAll('.sort-btn').forEach(btn => {
+        const active = btn.id === `sort-${mode}`;
+        btn.classList.toggle('bg-gray-800', active);
+        btn.classList.toggle('text-gray-200', active);
+        btn.classList.toggle('bg-gray-950', !active);
+        btn.classList.toggle('text-gray-500', !active);
+      });
+      const main = document.querySelector('main');
+      const days = [...new Set([...document.querySelectorAll('.match-card')].map(c => c.dataset.day))];
+      days.forEach(day => {
+        const header = document.querySelector(`.day-header[data-day="${day}"]`);
+        const cards = [...document.querySelectorAll(`.match-card[data-day="${day}"]`)];
+        cards.sort((a, b) => mode === 'score'
+          ? Number(b.dataset.score) - Number(a.dataset.score)
+          : new Date(a.dataset.kickoff) - new Date(b.dataset.kickoff)
+        );
+        cards.forEach(c => main.insertBefore(c, null)); // detach first
+        header.after(...cards);
+      });
     }
 
     function applyFilter() {
