@@ -32,7 +32,7 @@ The `/api/weekend` endpoint returns the raw JSON if you want to consume it progr
 
 ## GitHub Actions (weekly automation)
 
-The workflow in `.github/workflows/weekly.yml` runs every Friday at 07:00 UTC, generates fresh rankings, and commits the JSON back to the repo.
+The workflow in `.github/workflows/weekly.yml` runs every Tuesday at 07:00 UTC, generates fresh rankings, and commits the JSON back to the repo.
 
 To enable it:
 
@@ -40,6 +40,6 @@ To enable it:
 2. Add two repository secrets:
    - `FOOTBALL_DATA_API_KEY`
    - `GOOGLE_API_KEY`
-3. Push to GitHub — the cron will fire automatically on Fridays.
+3. Push to GitHub — the cron will fire automatically on Tuesdays.
 
 You can also trigger it manually from the **Actions** tab using the "Run workflow" button.
