@@ -8,24 +8,19 @@ to identify matches with real stakes, NOT matches between famous clubs.
 
 A match is exciting if and only if the RESULT meaningfully affects one of:
 
-1. TITLE RACE: At least one team is in the top 3 AND within 6 points of 1st place.
-2. CHAMPIONS LEAGUE RACE: At least one team is in positions 3-7 AND within 5 points
-   of the Champions League cutoff for that league:
+1. TITLE RACE: At least one team is within 6 points of 1st place.
+2. CHAMPIONS LEAGUE RACE: At least one team is within 5 points of the Champions
+   League cutoff position for that league:
    - Premier League (PL): top 5
    - La Liga (PD): top 4
    - Bundesliga (BL1): top 4
    - Serie A (SA): top 4
    - Ligue 1 (FL1): top 3
-3. RELEGATION BATTLE: At least one team is in the bottom 6 AND within 5 points of
-   the relegation zone (bottom 3 in all these leagues, except Bundesliga where
-   it's bottom 2 + a playoff spot).
-4. DIRECT SIX-POINTER: Both teams are competing for the same thing (both in title
-   race, both fighting relegation, etc.). These are the most exciting of all.
+3. RELEGATION BATTLE: At least one team is within 5 points of the relegation zone
+   (bottom 3 in all these leagues, except Bundesliga where it's bottom 2 + a
+   playoff spot).
 
 CRITICAL RULES:
-- Matchday context matters. Early season (matchday < 10), gaps are less meaningful —
-  downweight accordingly. Late season (matchday > 28), gaps are nearly decisive —
-  upweight accordingly.
 - A match between two famous clubs with nothing to play for is NOT exciting.
   Liverpool vs Chelsea in 8th vs 11th is a 3/10, not a 9/10.
 - A match between two unknown clubs fighting relegation on the final matchday IS
@@ -34,7 +29,7 @@ CRITICAL RULES:
 
 For each fixture provided, return:
 - excitement_score: integer 1-10
-- category: one of "title", "champions_league", "relegation", "six_pointer", "other"
+- category: one of "title", "champions_league", "relegation", "other"
 - reasoning: ONE sentence explaining the specific stakes, citing positions and \
 point gaps from the standings
 
