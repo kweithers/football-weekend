@@ -1,0 +1,322 @@
+[
+  {
+    "home_team": "Crystal Palace FC",
+    "away_team": "Arsenal FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 10,
+    "category": "title",
+    "reasoning": "Arsenal is fighting to secure the Premier League title on the final day, currently holding an 82-point lead with Manchester City trailing closely."
+  },
+  {
+    "home_team": "Manchester City FC",
+    "away_team": "Aston Villa FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 10,
+    "category": "title",
+    "reasoning": "Manchester City (77 pts) must win to stay in the title race, while Aston Villa (62 pts) needs points to protect their top-5 Champions League spot from Liverpool."
+  },
+  {
+    "home_team": "Girona FC",
+    "away_team": "Elche CF",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 10,
+    "category": "relegation",
+    "reasoning": "A direct relegation survival match between 18th-place Girona (40 pts) and 17th-place Elche (42 pts) on the final day of the season."
+  },
+  {
+    "home_team": "US Lecce",
+    "away_team": "Genoa CFC",
+    "kickoff": "2026-05-24T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 10,
+    "category": "relegation",
+    "reasoning": "Lecce sits 17th with 35 points, just one point above the relegation zone, requiring a result on the final matchday to ensure survival."
+  },
+  {
+    "home_team": "US Cremonese",
+    "away_team": "Como 1907",
+    "kickoff": "2026-05-24T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 10,
+    "category": "relegation",
+    "reasoning": "18th-place Cremonese (34 pts) must win to escape relegation, while 5th-place Como (68 pts) is only two points away from a Champions League spot."
+  },
+  {
+    "home_team": "West Ham United FC",
+    "away_team": "Leeds United FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 9,
+    "category": "relegation",
+    "reasoning": "18th-place West Ham (36 pts) is currently in the relegation zone and sits two points behind safety with only one game remaining."
+  },
+  {
+    "home_team": "Tottenham Hotspur FC",
+    "away_team": "Everton FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 9,
+    "category": "relegation",
+    "reasoning": "17th-place Tottenham (38 pts) is fighting for survival on the final day, sitting just two points above West Ham in the relegation zone."
+  },
+  {
+    "home_team": "AFC Bournemouth",
+    "away_team": "Manchester City FC",
+    "kickoff": "2026-05-19T18:30:00+00:00",
+    "competition": "PL",
+    "matchday": 37,
+    "excitement_score": 9,
+    "category": "title",
+    "reasoning": "Manchester City (2nd) must win their game in hand to narrow the 5-point gap to Arsenal, while Bournemouth is within 4 points of the Champions League cutoff."
+  },
+  {
+    "home_team": "Hellas Verona FC",
+    "away_team": "AS Roma",
+    "kickoff": "2026-05-24T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 8,
+    "category": "champions_league",
+    "reasoning": "4th-place Roma (70 pts) is only two points clear of Juventus and Como, making a final-day victory essential for Champions League qualification."
+  },
+  {
+    "home_team": "AC Milan",
+    "away_team": "Cagliari Calcio",
+    "kickoff": "2026-05-24T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 8,
+    "category": "champions_league",
+    "reasoning": "3rd-place AC Milan (70 pts) must secure a win to guarantee a Champions League position as they are only two points ahead of 5th place."
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Juventus FC",
+    "kickoff": "2026-05-24T13:00:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 8,
+    "category": "champions_league",
+    "reasoning": "6th-place Juventus (68 pts) is only two points behind the final Champions League qualifying spot heading into the final matchday."
+  },
+  {
+    "home_team": "Chelsea FC",
+    "away_team": "Tottenham Hotspur FC",
+    "kickoff": "2026-05-19T19:15:00+00:00",
+    "competition": "PL",
+    "matchday": 37,
+    "excitement_score": 8,
+    "category": "relegation",
+    "reasoning": "Tottenham (17th) is fighting to avoid the drop, sitting only two points above the relegation zone with this crucial game in hand."
+  },
+  {
+    "home_team": "Liverpool FC",
+    "away_team": "Brentford FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 7,
+    "category": "champions_league",
+    "reasoning": "5th-place Liverpool (59 pts) is three points behind 4th-place Villa and must win to maintain their Champions League position or move higher."
+  },
+  {
+    "home_team": "RCD Mallorca",
+    "away_team": "Real Oviedo",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "19th-place Mallorca (39 pts) is just one point behind the safety of 18th and three points behind 17th, requiring a final-day win to have any hope of survival."
+  },
+  {
+    "home_team": "Real Betis Balompi\u00e9",
+    "away_team": "Levante UD",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "Levante sits in 15th place with 42 points, just two points ahead of the relegation zone in a very tight bottom-half battle."
+  },
+  {
+    "home_team": "Getafe CF",
+    "away_team": "CA Osasuna",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "Osasuna is 16th with 42 points, only two points clear of 18th-place Girona, making this a high-stakes survival match on the final day."
+  },
+  {
+    "home_team": "RC Celta de Vigo",
+    "away_team": "Sevilla FC",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 5,
+    "category": "relegation",
+    "reasoning": "Sevilla is 13th with 43 points, only three points above the relegation zone, meaning they are not yet mathematically safe from the drop."
+  },
+  {
+    "home_team": "Deportivo Alav\u00e9s",
+    "away_team": "Rayo Vallecano de Madrid",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 5,
+    "category": "relegation",
+    "reasoning": "Alaves sits 14th on 43 points, just three points above 18th-place Girona, requiring a result to ensure their top-flight status."
+  },
+  {
+    "home_team": "Nottingham Forest FC",
+    "away_team": "AFC Bournemouth",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 5,
+    "category": "champions_league",
+    "reasoning": "AFC Bournemouth remains within 4 points of the top-5 Champions League cutoff, keeping their European ambitions alive for the final day."
+  },
+  {
+    "home_team": "Villarreal CF",
+    "away_team": "Club Atl\u00e9tico de Madrid",
+    "kickoff": "2026-05-24T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 3,
+    "category": "other",
+    "reasoning": "Both Villarreal (3rd) and Atletico (4th) have already secured Champions League football as they are 12 points clear of 5th place."
+  },
+  {
+    "home_team": "Brighton & Hove Albion FC",
+    "away_team": "Manchester United FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 3,
+    "category": "other",
+    "reasoning": "Manchester United (3rd) has already clinched a Champions League spot and Brighton is mathematically unable to reach the top 5."
+  },
+  {
+    "home_team": "SSC Napoli",
+    "away_team": "Udinese Calcio",
+    "kickoff": "2026-05-24T16:00:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 3,
+    "category": "other",
+    "reasoning": "Napoli (2nd) has already qualified for the Champions League and Udinese is safe in 10th place with no stakes remaining."
+  },
+  {
+    "home_team": "Sunderland AFC",
+    "away_team": "Chelsea FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Both clubs are positioned in mid-table (9th and 10th) with no possibility of reaching European spots or facing relegation."
+  },
+  {
+    "home_team": "Valencia CF",
+    "away_team": "FC Barcelona",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "FC Barcelona has already clinched the league title and Valencia is safe in 9th place with nothing to play for."
+  },
+  {
+    "home_team": "Real Madrid CF",
+    "away_team": "Athletic Club",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Real Madrid has secured 2nd place and Athletic Club is in 12th, safe from relegation and unable to reach European spots."
+  },
+  {
+    "home_team": "Bologna FC 1909",
+    "away_team": "FC Internazionale Milano",
+    "kickoff": "2026-05-23T16:00:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Inter Milan has already clinched the Serie A title and Bologna is in a comfortable 8th-place mid-table position."
+  },
+  {
+    "home_team": "ACF Fiorentina",
+    "away_team": "Atalanta BC",
+    "kickoff": "2026-05-22T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Fiorentina (14th) and Atalanta (7th) have no mathematical chance of affecting the relegation battle or the Champions League race."
+  },
+  {
+    "home_team": "Parma Calcio 1913",
+    "away_team": "US Sassuolo Calcio",
+    "kickoff": "2026-05-24T13:00:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Both teams are mid-table (13th and 11th) and are mathematically safe from relegation with no chance of European qualification."
+  },
+  {
+    "home_team": "RCD Espanyol de Barcelona",
+    "away_team": "Real Sociedad de F\u00fatbol",
+    "kickoff": "2026-05-23T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Espanyol (11th) and Sociedad (10th) are locked in mid-table with no stakes regarding the title, European spots, or relegation."
+  },
+  {
+    "home_team": "Fulham FC",
+    "away_team": "Newcastle United FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 2,
+    "category": "other",
+    "reasoning": "Both teams are in the middle of the table (13th and 11th) with no mathematical stakes remaining for the season's conclusion."
+  },
+  {
+    "home_team": "Burnley FC",
+    "away_team": "Wolverhampton Wanderers FC",
+    "kickoff": "2026-05-24T15:00:00+00:00",
+    "competition": "PL",
+    "matchday": 38,
+    "excitement_score": 1,
+    "category": "other",
+    "reasoning": "Both teams are already mathematically relegated to the Championship, sitting in 19th and 20th place."
+  },
+  {
+    "home_team": "SS Lazio",
+    "away_team": "AC Pisa 1909",
+    "kickoff": "2026-05-23T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 38,
+    "excitement_score": 1,
+    "category": "other",
+    "reasoning": "Lazio is 9th with nothing to play for, while Pisa is already relegated in 20th place."
+  }
+]
