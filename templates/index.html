@@ -55,7 +55,7 @@
 
   <main class="max-w-3xl mx-auto px-4 py-8">
     {% if not matches %}
-      <p class="text-center text-gray-500 mt-20">No rankings available yet. Run <code>generate_weekly.py</code> first.</p>
+      <p class="text-center text-gray-500 mt-20">No games this week..</p>
     {% else %}
       {% set ns = namespace(current_day="") %}
       {% for m in matches %}
