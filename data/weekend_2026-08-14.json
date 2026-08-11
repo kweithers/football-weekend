@@ -1,0 +1,62 @@
+[
+  {
+    "home_team": "RCD Espanyol de Barcelona",
+    "away_team": "Levante UD",
+    "kickoff": "2026-08-16T17:00:00+00:00",
+    "competition": "PD",
+    "matchday": 1,
+    "excitement_score": 9,
+    "category": "relegation",
+    "reasoning": "Levante is 18th with 42 points, currently in the relegation zone, while Espanyol is 11th with 46 points, only 4 points above the drop."
+  },
+  {
+    "home_team": "RC Celta de Vigo",
+    "away_team": "CA Osasuna",
+    "kickoff": "2026-08-16T19:30:00+00:00",
+    "competition": "PD",
+    "matchday": 1,
+    "excitement_score": 8,
+    "category": "relegation",
+    "reasoning": "Osasuna is in 16th place with 42 points, currently tied with 18th-placed Levante and only outside the relegation zone on goal difference."
+  },
+  {
+    "home_team": "Sevilla FC",
+    "away_team": "Rayo Vallecano de Madrid",
+    "kickoff": "2026-08-15T19:30:00+00:00",
+    "competition": "PD",
+    "matchday": 1,
+    "excitement_score": 8,
+    "category": "relegation",
+    "reasoning": "Sevilla is in 15th place with 43 points, sitting just one point above the 18th-placed relegation spot currently held by Levante."
+  },
+  {
+    "home_team": "Deportivo Alav\u00e9s",
+    "away_team": "Getafe CF",
+    "kickoff": "2026-08-15T17:30:00+00:00",
+    "competition": "PD",
+    "matchday": 1,
+    "excitement_score": 8,
+    "category": "relegation",
+    "reasoning": "Alaves is in 14th place with 43 points, placing them only one point ahead of the relegation zone in a tightly contested bottom half."
+  },
+  {
+    "home_team": "RC Deportivo La Coru\u00f1a",
+    "away_team": "Elche CF",
+    "kickoff": "2026-08-17T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 1,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "Elche is in 13th place with 43 points, leaving them just one point above the relegation threshold of 42 points."
+  },
+  {
+    "home_team": "Real Racing Club de Santander",
+    "away_team": "Villarreal CF",
+    "kickoff": "2026-08-16T15:00:00+00:00",
+    "competition": "PD",
+    "matchday": 1,
+    "excitement_score": 3,
+    "category": "other",
+    "reasoning": "Villarreal is in 3rd place with 72 points and has already secured Champions League qualification with a 12-point cushion over 5th place."
+  }
+]
