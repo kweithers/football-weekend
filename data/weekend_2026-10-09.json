@@ -1,0 +1,482 @@
+[
+  {
+    "home_team": "Liverpool FC",
+    "away_team": "Manchester City FC",
+    "kickoff": "2026-10-11T15:30:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 9,
+    "category": "title",
+    "reasoning": "Liverpool sits 6 points behind leaders Manchester City, meeting the maximum threshold for a title race clash between two top-six sides."
+  },
+  {
+    "home_team": "FC Augsburg",
+    "away_team": "FC Bayern M\u00fcnchen",
+    "kickoff": "2026-10-10T13:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 9,
+    "category": "title",
+    "reasoning": "Both fourth-place Augsburg and second-place Bayern Munich are within 5 points of the league lead in a critical top-four encounter."
+  },
+  {
+    "home_team": "ES Troyes AC",
+    "away_team": "Olympique de Marseille",
+    "kickoff": "2026-10-11T18:45:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 9,
+    "category": "relegation",
+    "reasoning": "A vital relegation six-pointer as 16th-place Troyes holds only a one-point lead over 17th-place Marseille in the bottom three."
+  },
+  {
+    "home_team": "Arsenal FC",
+    "away_team": "Leeds United FC",
+    "kickoff": "2026-10-10T11:30:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "Second-place Arsenal trails the leaders by 3 points while fifth-place Leeds United occupies the final Champions League spot."
+  },
+  {
+    "home_team": "FC Barcelona",
+    "away_team": "Getafe CF",
+    "kickoff": "2026-10-10T16:30:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "League leaders Barcelona look to extend their 5-point lead over the field against a Getafe side just 3 points above the relegation zone."
+  },
+  {
+    "home_team": "Real Madrid CF",
+    "away_team": "Villarreal CF",
+    "kickoff": "2026-10-10T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "Fourth-place Real Madrid is within 6 points of the summit and must win to stay inside the Champions League qualification zone."
+  },
+  {
+    "home_team": "Real Racing Club de Santander",
+    "away_team": "Valencia CF",
+    "kickoff": "2026-10-11T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 8,
+    "category": "relegation",
+    "reasoning": "A high-stakes survival battle between 16th-place Santander and 19th-place Valencia, who are separated by only 3 points."
+  },
+  {
+    "home_team": "TSG 1899 Hoffenheim",
+    "away_team": "Hamburger SV",
+    "kickoff": "2026-10-10T13:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 8,
+    "category": "relegation",
+    "reasoning": "Both teams are currently tied on 3 points, with Hamburg occupying the relegation playoff spot and Hoffenheim only safe on goal difference."
+  },
+  {
+    "home_team": "Borussia Dortmund",
+    "away_team": "SV Werder Bremen",
+    "kickoff": "2026-10-09T18:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "League leaders Dortmund protect their first-place standing against a Bremen side that is only 5 points adrift of the title lead."
+  },
+  {
+    "home_team": "Como 1907",
+    "away_team": "AS Roma",
+    "kickoff": "2026-10-11T10:30:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "Joint-leaders AS Roma face a difficult trip to 8th-place Como, who are within 2 points of the Champions League cutoff."
+  },
+  {
+    "home_team": "Cagliari Calcio",
+    "away_team": "Juventus FC",
+    "kickoff": "2026-10-11T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 8,
+    "category": "champions_league",
+    "reasoning": "Fourth-place Cagliari hosts seventh-place Juventus, with both teams separated by only 2 points in the race for the final Champions League spot."
+  },
+  {
+    "home_team": "Racing Club de Lens",
+    "away_team": "Olympique Lyonnais",
+    "kickoff": "2026-10-09T18:45:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "Second-place Lyon is only 2 points off the top, while 15th-place Lens is fighting to stay out of the relegation zone."
+  },
+  {
+    "home_team": "AS Monaco FC",
+    "away_team": "Toulouse FC",
+    "kickoff": "2026-10-10T18:45:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 8,
+    "category": "title",
+    "reasoning": "League leaders Monaco seek to maintain their top spot while Toulouse sits just one point above the relegation playoff position."
+  },
+  {
+    "home_team": "Sunderland AFC",
+    "away_team": "Brighton & Hove Albion FC",
+    "kickoff": "2026-10-10T14:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "champions_league",
+    "reasoning": "Third-place Brighton is within 5 points of the top, while Sunderland is only one point clear of the relegation zone."
+  },
+  {
+    "home_team": "Aston Villa FC",
+    "away_team": "Brentford FC",
+    "kickoff": "2026-10-10T14:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "champions_league",
+    "reasoning": "Fourth-place Brentford is firmly in the Champions League hunt while Villa is only one point above the drop zone."
+  },
+  {
+    "home_team": "Elche CF",
+    "away_team": "RC Celta de Vigo",
+    "kickoff": "2026-10-11T12:00:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "18th-place Elche is currently in the relegation zone and trails 14th-place Celta Vigo by just 2 points."
+  },
+  {
+    "home_team": "Real Betis Balompi\u00e9",
+    "away_team": "CA Osasuna",
+    "kickoff": "2026-10-11T16:30:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 7,
+    "category": "title",
+    "reasoning": "Third-place Real Betis is 5 points behind Barcelona and must win to keep pace in the title and Champions League races."
+  },
+  {
+    "home_team": "Levante UD",
+    "away_team": "Sevilla FC",
+    "kickoff": "2026-10-12T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 7,
+    "category": "champions_league",
+    "reasoning": "Fifth-place Sevilla is within 2 points of the Champions League spots, while 17th-place Levante is outside the bottom three only on goal difference."
+  },
+  {
+    "home_team": "SC Paderborn 07",
+    "away_team": "VfB Stuttgart",
+    "kickoff": "2026-10-10T13:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "A direct relegation battle with 15th-place Stuttgart trailing 12th-place Paderborn by only one point."
+  },
+  {
+    "home_team": "1. FC Union Berlin",
+    "away_team": "SV 07 Elversberg",
+    "kickoff": "2026-10-10T13:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "17th-place Union Berlin is desperate for points in the drop zone against an Elversberg side only safe on goal difference."
+  },
+  {
+    "home_team": "SC Freiburg",
+    "away_team": "FC Schalke 04",
+    "kickoff": "2026-10-11T15:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 7,
+    "category": "title",
+    "reasoning": "Third-place Freiburg is 2 points off the top, while Schalke is only 2 points above the relegation playoff spot."
+  },
+  {
+    "home_team": "Genoa CFC",
+    "away_team": "ACF Fiorentina",
+    "kickoff": "2026-10-10T13:00:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "A basement battle between 19th-place Genoa and 17th-place Fiorentina, with both teams trapped in the bottom four."
+  },
+  {
+    "home_team": "FC Internazionale Milano",
+    "away_team": "Parma Calcio 1913",
+    "kickoff": "2026-10-10T16:00:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "title",
+    "reasoning": "Joint-leaders Inter Milan face a Parma side that is only 2 points clear of the relegation zone."
+  },
+  {
+    "home_team": "US Lecce",
+    "away_team": "Bologna FC 1909",
+    "kickoff": "2026-10-11T13:00:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "18th-place Bologna is in the relegation zone but can overtake 12th-place Lecce with a victory as they are only 4 points apart."
+  },
+  {
+    "home_team": "SS Lazio",
+    "away_team": "AC Monza",
+    "kickoff": "2026-10-11T13:00:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "title",
+    "reasoning": "Joint-leaders Lazio take on Monza, who are currently safe from the relegation zone by only 2 points."
+  },
+  {
+    "home_team": "Torino FC",
+    "away_team": "Udinese Calcio",
+    "kickoff": "2026-10-12T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "relegation",
+    "reasoning": "Both teams are tied on 4 points and sit just 2 points above the relegation zone in a crowded bottom-half battle."
+  },
+  {
+    "home_team": "Lille OSC",
+    "away_team": "Le Havre AC",
+    "kickoff": "2026-10-10T15:15:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "champions_league",
+    "reasoning": "Fourth-place Lille is only one point behind the Champions League cutoff, while Le Havre sits at the bottom of the table."
+  },
+  {
+    "home_team": "FC Lorient",
+    "away_team": "Paris FC",
+    "kickoff": "2026-10-10T18:45:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 7,
+    "category": "title",
+    "reasoning": "Third-place Paris FC is 2 points from the top, while Lorient is only one point above the relegation playoff position."
+  },
+  {
+    "home_team": "Deportivo Alav\u00e9s",
+    "away_team": "Club Atl\u00e9tico de Madrid",
+    "kickoff": "2026-10-10T14:15:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 7,
+    "category": "title",
+    "reasoning": "Second-place Atletico Madrid must win to stay within 5 points of Barcelona, while Alaves is within 4 points of the top four."
+  },
+  {
+    "home_team": "Ipswich Town FC",
+    "away_team": "Fulham FC",
+    "kickoff": "2026-10-10T14:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "19th-place Fulham is in the relegation zone and trails 11th-place Ipswich by 4 points."
+  },
+  {
+    "home_team": "Manchester United FC",
+    "away_team": "Tottenham Hotspur FC",
+    "kickoff": "2026-10-10T16:30:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "Both clubs are struggling near the bottom, with Tottenham in last place and Manchester United only two points clear of the relegation zone."
+  },
+  {
+    "home_team": "Crystal Palace FC",
+    "away_team": "Nottingham Forest FC",
+    "kickoff": "2026-10-11T13:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "A bottom-half duel where 15th-place Crystal Palace trails 13th-place Nottingham Forest by just one point."
+  },
+  {
+    "home_team": "Coventry City FC",
+    "away_team": "Newcastle United FC",
+    "kickoff": "2026-10-12T19:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "18th-place Coventry is in the relegation zone, while Newcastle is within 1 point of the Champions League positions."
+  },
+  {
+    "home_team": "M\u00e1laga CF",
+    "away_team": "RCD Espanyol de Barcelona",
+    "kickoff": "2026-10-09T19:00:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "Last-place Malaga needs a win to bridge the 4-point gap to 15th-place Espanyol in the fight for survival."
+  },
+  {
+    "home_team": "1. FSV Mainz 05",
+    "away_team": "Bayer 04 Leverkusen",
+    "kickoff": "2026-10-10T13:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 6,
+    "category": "champions_league",
+    "reasoning": "Both sides are level on 7 points and sit just outside the top four on goal difference."
+  },
+  {
+    "home_team": "1. FC K\u00f6ln",
+    "away_team": "Borussia M\u00f6nchengladbach",
+    "kickoff": "2026-10-11T13:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "Bottom-place Monchengladbach is looking for their first points against a 13th-place Koln side within 1 point of the drop."
+  },
+  {
+    "home_team": "US Sassuolo Calcio",
+    "away_team": "AC Milan",
+    "kickoff": "2026-10-11T16:00:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "champions_league",
+    "reasoning": "Fifth-place AC Milan is only one point behind the Champions League cutoff, while Sassuolo is within 5 points of the bottom three."
+  },
+  {
+    "home_team": "Atalanta BC",
+    "away_team": "Venezia FC",
+    "kickoff": "2026-10-12T16:30:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "relegation",
+    "reasoning": "Last-place Venezia travels to Atalanta, who are currently 4 points clear of the relegation zone."
+  },
+  {
+    "home_team": "Stade Rennais FC 1901",
+    "away_team": "AJ Auxerre",
+    "kickoff": "2026-10-11T15:15:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 6,
+    "category": "champions_league",
+    "reasoning": "Fifth-place Rennais is one point away from the Champions League spots, while Auxerre is only 2 points above the drop zone."
+  },
+  {
+    "home_team": "Chelsea FC",
+    "away_team": "AFC Bournemouth",
+    "kickoff": "2026-10-10T14:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 5,
+    "category": "relegation",
+    "reasoning": "Bournemouth is only safe from the relegation zone by goal difference while Chelsea remains 2 points outside the top five."
+  },
+  {
+    "home_team": "SSC Napoli",
+    "away_team": "Frosinone Calcio",
+    "kickoff": "2026-10-10T18:45:00+00:00",
+    "competition": "SA",
+    "matchday": 6,
+    "excitement_score": 5,
+    "category": "champions_league",
+    "reasoning": "Sixth-place Frosinone and ninth-place Napoli are both within 5 points of the Champions League cutoff."
+  },
+  {
+    "home_team": "Paris Saint-Germain FC",
+    "away_team": "Le Mans FC",
+    "kickoff": "2026-10-10T18:45:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 5,
+    "category": "champions_league",
+    "reasoning": "PSG is 3 points from the Champions League places while Le Mans sits only 2 points above the relegation zone."
+  },
+  {
+    "home_team": "OGC Nice",
+    "away_team": "RC Strasbourg Alsace",
+    "kickoff": "2026-10-11T13:00:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 5,
+    "category": "relegation",
+    "reasoning": "14th-place Nice trails 8th-place Strasbourg by only 2 points in a tightly packed mid-table."
+  },
+  {
+    "home_team": "RB Leipzig",
+    "away_team": "Eintracht Frankfurt",
+    "kickoff": "2026-10-10T16:30:00+00:00",
+    "competition": "BL1",
+    "matchday": 5,
+    "excitement_score": 5,
+    "category": "champions_league",
+    "reasoning": "Leipzig and Frankfurt are separated by 1 point and both are within 2 points of the top four."
+  },
+  {
+    "home_team": "Hull City AFC",
+    "away_team": "Everton FC",
+    "kickoff": "2026-10-11T13:00:00+00:00",
+    "competition": "PL",
+    "matchday": 6,
+    "excitement_score": 4,
+    "category": "champions_league",
+    "reasoning": "Everton and Hull are in 7th and 8th respectively, sitting just 1 point behind the Champions League qualification spot."
+  },
+  {
+    "home_team": "Rayo Vallecano de Madrid",
+    "away_team": "Athletic Club",
+    "kickoff": "2026-10-10T12:00:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 4,
+    "category": "relegation",
+    "reasoning": "Both teams sit on 8 points in the bottom half of the table, only 3 points clear of the relegation zone."
+  },
+  {
+    "home_team": "Real Sociedad de F\u00fatbol",
+    "away_team": "RC Deportivo La Coru\u00f1a",
+    "kickoff": "2026-10-11T14:15:00+00:00",
+    "competition": "PD",
+    "matchday": 8,
+    "excitement_score": 4,
+    "category": "relegation",
+    "reasoning": "Sociedad and Deportivo are tied on 10 points and remain 5 points clear of the current relegation cutoff."
+  },
+  {
+    "home_team": "Stade Brestois 29",
+    "away_team": "Angers SCO",
+    "kickoff": "2026-10-10T18:45:00+00:00",
+    "competition": "FL1",
+    "matchday": 6,
+    "excitement_score": 4,
+    "category": "relegation",
+    "reasoning": "Seventh-place Angers leads 11th-place Brest by only 2 points, with both teams within 3 points of the relegation zone."
+  }
+]
