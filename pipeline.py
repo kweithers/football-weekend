@@ -30,7 +30,20 @@ def run_pipeline() -> list[RankedMatch]:
 
     result: LLMRankedMatchList = chain.invoke({"league_data": league_data_str})
 
-    # Join LLM rankings back to original Match objects (preserving correct dates)
+    ranked = _build_ranked_matches(all_matches, result)
+
+    if not ranked:
+        fixture_count = len(all_matches)
+        raise RuntimeError(f"Ranking failed: {fixture_count} fixtures fetched but none were ranked")
+
+    return ranked
+
+
+def _build_ranked_matches(
+    all_matches: dict[tuple[str, str, str], Match],
+    result: LLMRankedMatchList,
+) -> list[RankedMatch]:
+    """Join LLM rankings back to original Match objects and sort by score."""
     ranked = []
     for r in result.matches:
         match = all_matches.get((r.home_team, r.away_team, r.competition))
@@ -42,11 +55,6 @@ def run_pipeline() -> list[RankedMatch]:
             category=r.category,
             reasoning=r.reasoning,
         ))
-
-    if not ranked:
-        fixture_count = len(all_matches)
-        raise RuntimeError(f"Ranking failed: {fixture_count} fixtures fetched but none were ranked")
-
     return sorted(ranked, key=lambda m: m.excitement_score, reverse=True)
 
 
