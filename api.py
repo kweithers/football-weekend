@@ -14,7 +14,7 @@ app = FastAPI(title="Football Weekend Ranker")
 templates = Jinja2Templates(directory="templates")
 
 DATA_DIR = Path("data")
-BREAKS_FILE = Path("breaks.json")
+BREAKS_FILE = DATA_DIR / "breaks.json"
 DEFAULT_BREAK_MESSAGE = "No league fixtures this weekend."
 
 LEAGUE_NAMES = {
@@ -34,13 +34,11 @@ def _latest_data_file() -> Path | None:
 
 
 def _break_message(weekend_date: str | None) -> str:
-    """Return the explanation for an empty weekend from breaks.json, matched by date range."""
+    """Return the generated explanation for an empty weekend from data/breaks.json."""
     if weekend_date and BREAKS_FILE.exists():
         with open(BREAKS_FILE) as f:
             breaks = json.load(f)
-        for b in breaks:
-            if b["start"] <= weekend_date <= b["end"]:
-                return b["message"]
+        return breaks.get(weekend_date, DEFAULT_BREAK_MESSAGE)
     return DEFAULT_BREAK_MESSAGE
 
 

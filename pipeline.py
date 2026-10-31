@@ -2,7 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from aggregator import fetch_all_leagues_data
 from models import LLMRankedMatchList, Match, RankedMatch
-from prompts import ranking_prompt, format_league_data
+from prompts import break_prompt, ranking_prompt, format_league_data
 
 
 def run_pipeline() -> list[RankedMatch]:
@@ -38,3 +38,14 @@ def run_pipeline() -> list[RankedMatch]:
         ))
 
     return sorted(ranked, key=lambda m: m.excitement_score, reverse=True)
+
+
+def explain_empty_weekend(date_from: str, date_to: str) -> str:
+    """Ask Gemini, grounded with Google Search, why there are no league fixtures in the range."""
+    llm = ChatGoogleGenerativeAI(model="gemini-3-flash-preview")
+    search_llm = llm.bind_tools([{"google_search": {}}])
+
+    chain = break_prompt | search_llm
+
+    result = chain.invoke({"date_from": date_from, "date_to": date_to})
+    return result.text.strip()

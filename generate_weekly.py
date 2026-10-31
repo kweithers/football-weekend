@@ -17,14 +17,30 @@ def next_friday() -> str:
     return friday.strftime("%Y-%m-%d")
 
 
+BREAKS_FILE = "data/breaks.json"
+
+
+def save_break_message(weekend_date: str, message: str) -> None:
+    """Record why a weekend has no fixtures in data/breaks.json, keyed by weekend date."""
+    breaks = {}
+    if os.path.exists(BREAKS_FILE):
+        with open(BREAKS_FILE) as f:
+            breaks = json.load(f)
+    breaks[weekend_date] = message
+    with open(BREAKS_FILE, "w") as f:
+        json.dump(breaks, f, indent=2, sort_keys=True)
+
+
 def main() -> None:
-    from pipeline import run_pipeline
+    from pipeline import explain_empty_weekend, run_pipeline
+    from tools import _get_weekend_range
 
     print("Running weekly ranking pipeline...")
     ranked = run_pipeline()
 
     os.makedirs("data", exist_ok=True)
-    filename = f"data/weekend_{next_friday()}.json"
+    weekend_date = next_friday()
+    filename = f"data/weekend_{weekend_date}.json"
 
     payload = [
         {
@@ -44,6 +60,11 @@ def main() -> None:
         json.dump(payload, f, indent=2)
 
     print(f"Written {len(payload)} matches to {filename}")
+
+    if not payload:
+        message = explain_empty_weekend(*_get_weekend_range())
+        save_break_message(weekend_date, message)
+        print(f"No fixtures this week: {message}")
 
 
 if __name__ == "__main__":

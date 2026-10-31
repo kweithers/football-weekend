@@ -28,15 +28,7 @@ Serves the rankings as a web page at `http://localhost:8000`. Requires a JSON fi
 uv run uvicorn api:app --reload
 ```
 
-When a weekend has no fixtures, the page shows a message explaining why. Messages live in `breaks.json` as date ranges, matched against the weekend's Friday date:
-
-```json
-[
-  { "start": "2026-11-09", "end": "2026-11-17", "message": "International break: league football returns next weekend." }
-]
-```
-
-Weekends that don't fall in any range show a generic "No league fixtures this weekend." message.
+When a weekend has no fixtures, `generate_weekly.py` asks Gemini (with Google Search grounding) why — summer break, international break, cup weekend, etc. — and saves the answer to `data/breaks.json`, keyed by weekend date. The page shows that message instead of an empty list. You can edit an entry by hand if the answer is off.
 
 The `/api/weekend` endpoint returns the raw JSON if you want to consume it programmatically.
 
