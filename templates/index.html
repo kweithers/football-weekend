@@ -55,7 +55,7 @@
 
   <main class="max-w-3xl mx-auto px-4 py-8">
     {% if not matches %}
-      <p class="text-center text-gray-500 mt-20">{{ break_message }}</p>
+      <p class="text-center mt-20 {{ 'text-red-400' if empty_weekend.type == 'error' else 'text-gray-500' }}">{{ empty_weekend.message }}</p>
     {% else %}
       {% set ns = namespace(current_day="") %}
       {% for m in matches %}

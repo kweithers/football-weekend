@@ -14,8 +14,8 @@ app = FastAPI(title="Football Weekend Ranker")
 templates = Jinja2Templates(directory="templates")
 
 DATA_DIR = Path("data")
-BREAKS_FILE = DATA_DIR / "breaks.json"
-DEFAULT_BREAK_MESSAGE = "No league fixtures this weekend."
+EMPTY_WEEKENDS_FILE = DATA_DIR / "empty_weekends.json"
+DEFAULT_EMPTY_WEEKEND = {"type": "break", "message": "No league fixtures this weekend."}
 
 LEAGUE_NAMES = {
     "PL": "Premier League",
@@ -33,13 +33,13 @@ def _latest_data_file() -> Path | None:
     return files[0] if files else None
 
 
-def _break_message(weekend_date: str | None) -> str:
-    """Return the generated explanation for an empty weekend from data/breaks.json."""
-    if weekend_date and BREAKS_FILE.exists():
-        with open(BREAKS_FILE) as f:
-            breaks = json.load(f)
-        return breaks.get(weekend_date, DEFAULT_BREAK_MESSAGE)
-    return DEFAULT_BREAK_MESSAGE
+def _empty_weekend(weekend_date: str | None) -> dict:
+    """Return why a weekend has no matches ({"type": "break" | "error", "message": str})."""
+    if weekend_date and EMPTY_WEEKENDS_FILE.exists():
+        with open(EMPTY_WEEKENDS_FILE) as f:
+            weekends = json.load(f)
+        return weekends.get(weekend_date, DEFAULT_EMPTY_WEEKEND)
+    return DEFAULT_EMPTY_WEEKEND
 
 
 @app.get("/api/weekend")
@@ -75,6 +75,6 @@ def index(request: Request):
         context={
             "matches": matches,
             "weekend_date": weekend_date,
-            "break_message": None if matches else _break_message(weekend_date),
+            "empty_weekend": None if matches else _empty_weekend(weekend_date),
         },
     )

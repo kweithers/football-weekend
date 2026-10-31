@@ -31,6 +31,8 @@ jobs:
         run: uv run python generate_weekly.py
 
       - name: Commit and push rankings
+        # Also runs when generation fails, so the site shows the error message
+        if: success() || failure()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
