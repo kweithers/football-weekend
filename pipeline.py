@@ -2,12 +2,18 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 from aggregator import fetch_all_leagues_data
 from models import LLMRankedMatchList, Match, RankedMatch
-from prompts import ranking_prompt, format_league_data
+from prompts import break_prompt, ranking_prompt, format_league_data
 
 
 def run_pipeline() -> list[RankedMatch]:
-    """Fetch data, rank fixtures, and return sorted list of RankedMatch."""
+    """Fetch data, rank fixtures, and return sorted list of RankedMatch.
+
+    Returns an empty list only when football-data.org has no fixtures for any
+    league. Raises if fixtures exist but none could be ranked.
+    """
     data = fetch_all_leagues_data()
+    if not data:
+        return []
 
     # Build a lookup of all matches keyed by (home_team, away_team, competition)
     all_matches: dict[tuple[str, str, str], Match] = {}
@@ -37,4 +43,19 @@ def run_pipeline() -> list[RankedMatch]:
             reasoning=r.reasoning,
         ))
 
+    if not ranked:
+        fixture_count = len(all_matches)
+        raise RuntimeError(f"Ranking failed: {fixture_count} fixtures fetched but none were ranked")
+
     return sorted(ranked, key=lambda m: m.excitement_score, reverse=True)
+
+
+def explain_empty_weekend(date_from: str, date_to: str) -> str:
+    """Ask Gemini, grounded with Google Search, why there are no league fixtures in the range."""
+    llm = ChatGoogleGenerativeAI(model="gemini-3-flash-preview")
+    search_llm = llm.bind_tools([{"google_search": {}}])
+
+    chain = break_prompt | search_llm
+
+    result = chain.invoke({"date_from": date_from, "date_to": date_to})
+    return result.text.strip()

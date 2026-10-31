@@ -46,6 +46,17 @@ ranking_prompt = ChatPromptTemplate.from_messages([
     ("user", RANKING_USER_PROMPT),
 ])
 
+BREAK_PROMPT = """There are no Premier League, La Liga, Bundesliga, Serie A or \
+Ligue 1 matches scheduled between {date_from} and {date_to}. Search the web and \
+explain why (for example: summer break, international break, cup competition \
+weekend, winter break).
+
+Reply with ONE or TWO short sentences suitable for showing to fans on a website, \
+including when league football returns if you can find it. No preamble, no \
+markdown, no citations."""
+
+break_prompt = ChatPromptTemplate.from_messages([("user", BREAK_PROMPT)])
+
 
 def format_league_data(data: dict) -> str:
     """Format aggregated league data into readable text for the LLM prompt."""
