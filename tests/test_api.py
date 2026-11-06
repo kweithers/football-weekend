@@ -134,6 +134,12 @@ class TestIndexEndpoint:
         assert response.status_code == 200
         assert "Premier League" in response.text
 
+    def test_league_flags_rendered(self, client, data_dir):
+        (data_dir / "weekend_2026-10-31.json").write_text(json.dumps(SAMPLE_MATCHES))
+        response = client.get("/")
+        assert response.status_code == 200
+        assert "fi fi-gb-eng" in response.text
+
     def test_matches_sorted_by_day_then_score_desc(self, client, data_dir):
         (data_dir / "weekend_2026-10-31.json").write_text(json.dumps(SAMPLE_MATCHES))
         # Import app and call the index function directly to inspect template context

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weekend Football Ranker</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
   <style>
     .bar { display: inline-block; width: 1rem; height: 1.25rem; border-radius: 2px; margin-right: 1px; }
 
@@ -27,14 +28,6 @@
     }
     .match-card .bar.on { background-color: rgb(var(--c) / calc(0.45 + 0.55 * var(--t))); }
     .match-card .league-tag { color: rgb(var(--c)); }
-
-    /* Mini flags */
-    .flag { display: inline-block; width: 1rem; height: 0.7rem; border-radius: 2px; margin-right: 0.375rem; vertical-align: -1px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.15); background: rgb(var(--c)); }
-    .flag-PL  { background: linear-gradient(#c8102e, #c8102e) center / 100% 22% no-repeat, linear-gradient(#c8102e, #c8102e) center / 16% 100% no-repeat, #fff; }
-    .flag-PD  { background: linear-gradient(#aa151b 25%, #f1bf00 25% 75%, #aa151b 75%); }
-    .flag-BL1 { background: linear-gradient(#000 33.3%, #dd0000 33.3% 66.6%, #ffce00 66.6%); }
-    .flag-SA  { background: linear-gradient(90deg, #009246 33.3%, #fff 33.3% 66.6%, #ce2b37 66.6%); }
-    .flag-FL1 { background: linear-gradient(90deg, #0055a4 33.3%, #fff 33.3% 66.6%, #ef4135 66.6%); }
   </style>
 </head>
 <body class="min-h-screen font-mono">
@@ -49,15 +42,12 @@
     <span class="text-xs text-gray-500 uppercase tracking-widest">Filter Leagues</span>
   </div>
   <div class="max-w-3xl mx-auto px-4 pt-2 pb-2 flex flex-wrap gap-2 justify-center">
-    {% set ns_l = namespace(seen=[]) %}
-    {% for m in matches if m.league_name not in ns_l.seen %}
-    {% set ns_l.seen = ns_l.seen + [m.league_name] %}
+    {% for lm in matches | unique(attribute='league_name') %}
     <button
-      class="league-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors active-league"
-      data-league="{{ m.league_name }}"
-      data-competition="{{ m.competition }}"
+      class="league-btn inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors active-league"
+      data-league="{{ lm.league_name }}"
       onclick="toggleLeague(this)"
-    ><span class="flag flag-{{ m.competition }}"></span>{{ m.league_name }}</button>
+    >{% if lm.league_flag %}<span class="fi fi-{{ lm.league_flag }} rounded-sm" aria-hidden="true"></span>{% endif %}{{ lm.league_name }}</button>
     {% endfor %}
   </div>
   <div class="max-w-3xl mx-auto px-4 pt-3 pb-2 flex flex-col items-center gap-2">
@@ -105,7 +95,7 @@
                 <span class="text-xs px-2 py-0.5 rounded bg-gray-700/70 text-gray-200 font-semibold uppercase tracking-wide">
                   {{ m.category | replace("_", " ") }}
                 </span>
-                <span class="league-tag text-xs font-semibold"><span class="flag flag-{{ m.competition }}"></span>{{ m.league_name }}</span>
+                <span class="league-tag inline-flex items-center gap-1.5 text-xs font-semibold">{% if m.league_flag %}<span class="fi fi-{{ m.league_flag }} rounded-sm" aria-hidden="true"></span>{% endif %}{{ m.league_name }}</span>
               </div>
 
               {# Score bar #}
