@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weekend Football Ranker</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css" />
   <style>
     .bar { display: inline-block; width: 1rem; height: 1.25rem; border-radius: 2px; margin-right: 1px; }
   </style>
@@ -21,13 +22,12 @@
     <span class="text-xs text-gray-500 uppercase tracking-widest">Filter Leagues</span>
   </div>
   <div class="max-w-3xl mx-auto px-4 pt-2 pb-2 flex flex-wrap gap-2 justify-center">
-    {% set leagues = matches | map(attribute='league_name') | unique | list %}
-    {% for league in leagues %}
+    {% for lm in matches | unique(attribute='league_name') %}
     <button
-      class="league-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors active-league"
-      data-league="{{ league }}"
+      class="league-btn inline-flex items-center gap-1.5 px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors active-league"
+      data-league="{{ lm.league_name }}"
       onclick="toggleLeague(this)"
-    >{{ league }}</button>
+    >{% if lm.league_flag %}<span class="fi fi-{{ lm.league_flag }} rounded-sm" aria-hidden="true"></span>{% endif %}{{ lm.league_name }}</button>
     {% endfor %}
   </div>
   <div class="max-w-3xl mx-auto px-4 pt-3 pb-2 flex flex-col items-center gap-2">
@@ -98,7 +98,7 @@
                 <span class="text-xs px-2 py-0.5 rounded {{ badge_cls }} font-semibold uppercase tracking-wide">
                   {{ m.category | replace("_", " ") }}
                 </span>
-                <span class="text-xs text-gray-400">{{ m.league_name }}</span>
+                <span class="inline-flex items-center gap-1.5 text-xs text-gray-400">{% if m.league_flag %}<span class="fi fi-{{ m.league_flag }} rounded-sm" aria-hidden="true"></span>{% endif %}{{ m.league_name }}</span>
               </div>
 
               {# Score bar #}
