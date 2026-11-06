@@ -25,6 +25,15 @@ LEAGUE_NAMES = {
     "FL1": "Ligue 1",
 }
 
+# flag-icons country codes (https://github.com/lipis/flag-icons)
+LEAGUE_FLAGS = {
+    "PL": "gb-eng",
+    "PD": "es",
+    "BL1": "de",
+    "SA": "it",
+    "FL1": "fr",
+}
+
 
 def _latest_data_file() -> Path | None:
     if not DATA_DIR.exists():
@@ -65,6 +74,7 @@ def index(request: Request):
     # Enrich with league names and sort: chronologically by day, then score descending within each day
     for m in matches:
         m["league_name"] = LEAGUE_NAMES.get(m["competition"], m["competition"])
+        m["league_flag"] = LEAGUE_FLAGS.get(m["competition"])
         m["day_label"] = datetime.fromisoformat(m["kickoff"]).strftime("%A %-d %b")
 
     matches.sort(key=lambda m: (m["kickoff"][:10], -m["excitement_score"]))
