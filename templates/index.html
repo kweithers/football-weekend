@@ -10,11 +10,12 @@
 
     /* League hue (space-separated RGB); gray fallback for unknown leagues */
     .match-card { --c: 156 163 175; }
-    [data-competition="PL"]  { --c: 168 85 247; }  /* violet  */
-    [data-competition="PD"]  { --c: 249 115 22; }  /* orange  */
-    [data-competition="BL1"] { --c: 239 68 68; }   /* red     */
-    [data-competition="SA"]  { --c: 59 130 246; }  /* blue    */
-    [data-competition="FL1"] { --c: 34 197 94; }   /* green   */
+    /* Hue taken from each country's flag (the colour no other league's flag owns) */
+    [data-competition="PL"]  { --c: 226 232 240; } /* England: white  */
+    [data-competition="PD"]  { --c: 239 68 68; }   /* Spain: red      */
+    [data-competition="BL1"] { --c: 255 204 0; }   /* Germany: gold   */
+    [data-competition="SA"]  { --c: 34 197 94; }   /* Italy: green    */
+    [data-competition="FL1"] { --c: 59 130 246; }  /* France: blue    */
 
     /* --t is excitement_score / 10: the league hue gets stronger as the score rises */
     .match-card {
@@ -26,7 +27,14 @@
     }
     .match-card .bar.on { background-color: rgb(var(--c) / calc(0.45 + 0.55 * var(--t))); }
     .match-card .league-tag { color: rgb(var(--c)); }
-    .league-dot { display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 9999px; margin-right: 0.375rem; background-color: rgb(var(--c)); }
+
+    /* Mini flags */
+    .flag { display: inline-block; width: 1rem; height: 0.7rem; border-radius: 2px; margin-right: 0.375rem; vertical-align: -1px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.15); background: rgb(var(--c)); }
+    .flag-PL  { background: linear-gradient(#c8102e, #c8102e) center / 100% 22% no-repeat, linear-gradient(#c8102e, #c8102e) center / 16% 100% no-repeat, #fff; }
+    .flag-PD  { background: linear-gradient(#aa151b 25%, #f1bf00 25% 75%, #aa151b 75%); }
+    .flag-BL1 { background: linear-gradient(#000 33.3%, #dd0000 33.3% 66.6%, #ffce00 66.6%); }
+    .flag-SA  { background: linear-gradient(90deg, #009246 33.3%, #fff 33.3% 66.6%, #ce2b37 66.6%); }
+    .flag-FL1 { background: linear-gradient(90deg, #0055a4 33.3%, #fff 33.3% 66.6%, #ef4135 66.6%); }
   </style>
 </head>
 <body class="min-h-screen font-mono">
@@ -49,7 +57,7 @@
       data-league="{{ m.league_name }}"
       data-competition="{{ m.competition }}"
       onclick="toggleLeague(this)"
-    ><span class="league-dot"></span>{{ m.league_name }}</button>
+    ><span class="flag flag-{{ m.competition }}"></span>{{ m.league_name }}</button>
     {% endfor %}
   </div>
   <div class="max-w-3xl mx-auto px-4 pt-3 pb-2 flex flex-col items-center gap-2">
@@ -97,7 +105,7 @@
                 <span class="text-xs px-2 py-0.5 rounded bg-gray-700/70 text-gray-200 font-semibold uppercase tracking-wide">
                   {{ m.category | replace("_", " ") }}
                 </span>
-                <span class="league-tag text-xs font-semibold">{{ m.league_name }}</span>
+                <span class="league-tag text-xs font-semibold"><span class="flag flag-{{ m.competition }}"></span>{{ m.league_name }}</span>
               </div>
 
               {# Score bar #}
