@@ -44,9 +44,6 @@
 
   {% if matches %}
   <div class="max-w-3xl mx-auto px-4 pt-6 pb-1 flex justify-center">
-    <button id="bangers-btn" onclick="toggleBangers()" aria-pressed="false" class="px-4 py-1.5 rounded text-sm font-bold border border-gray-600 bg-gray-950 text-gray-500 hover:bg-gray-700 transition-colors">🔥 Bangers Only</button>
-  </div>
-  <div class="max-w-3xl mx-auto px-4 pt-4 pb-1 flex justify-center">
     <span class="text-xs text-gray-500 uppercase tracking-widest">Filter Leagues</span>
   </div>
   <div class="max-w-3xl mx-auto px-4 pt-2 pb-2 flex flex-wrap gap-2 justify-center">
@@ -78,6 +75,9 @@
       <button id="sort-time" onclick="setSort('time')" class="sort-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors">Kickoff Time</button>
       <button id="sort-score" onclick="setSort('score')" class="sort-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-950 text-gray-500 hover:bg-gray-700 transition-colors">Excitement Score</button>
     </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4 pt-4 pb-2 flex justify-center">
+    <button id="bangers-btn" onclick="toggleBangers()" aria-pressed="false" class="px-4 py-1.5 rounded text-sm font-bold border border-gray-600 bg-gray-950 text-gray-500 hover:bg-gray-700 transition-colors">🔥 Bangers Only</button>
   </div>
   {% endif %}
 
