@@ -76,6 +76,9 @@
       <button id="sort-score" onclick="setSort('score')" class="sort-btn px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-950 text-gray-500 hover:bg-gray-700 transition-colors">Excitement Score</button>
     </div>
   </div>
+  <div class="max-w-3xl mx-auto px-4 pt-4 pb-2 flex justify-center">
+    <button id="bangers-btn" onclick="toggleBangers()" aria-pressed="false" class="px-4 py-1.5 rounded text-sm font-bold border border-gray-600 bg-gray-950 text-gray-500 hover:bg-gray-700 transition-colors">🔥 Bangers Only</button>
+  </div>
   {% endif %}
 
   <main class="max-w-3xl mx-auto px-4 py-8">
@@ -121,6 +124,7 @@
           </div>
         </div>
       {% endfor %}
+      <p id="no-bangers" class="text-center mt-12 text-gray-500" style="display: none">No bangers this weekend 😢</p>
     {% endif %}
   </main>
 
@@ -178,10 +182,33 @@
       });
     }
 
+    let bangersOnly = false;
+
+    function toggleBangers() {
+      bangersOnly = !bangersOnly;
+      const btn = document.getElementById('bangers-btn');
+      btn.setAttribute('aria-pressed', bangersOnly);
+      btn.classList.toggle('bg-orange-600', bangersOnly);
+      btn.classList.toggle('border-orange-400', bangersOnly);
+      btn.classList.toggle('text-white', bangersOnly);
+      btn.classList.toggle('hover:bg-orange-500', bangersOnly);
+      btn.classList.toggle('bg-gray-950', !bangersOnly);
+      btn.classList.toggle('border-gray-600', !bangersOnly);
+      btn.classList.toggle('text-gray-500', !bangersOnly);
+      btn.classList.toggle('hover:bg-gray-700', !bangersOnly);
+      applyFilter();
+    }
+
     function applyFilter() {
+      let anyVisible = false;
       document.querySelectorAll('.match-card').forEach(card => {
-        card.style.display = activeLeagues.has(card.dataset.league) ? '' : 'none';
+        const show = activeLeagues.has(card.dataset.league)
+          && (!bangersOnly || Number(card.dataset.score) >= 9);
+        card.style.display = show ? '' : 'none';
+        anyVisible = anyVisible || show;
       });
+      const noBangers = document.getElementById('no-bangers');
+      if (noBangers) noBangers.style.display = bangersOnly && !anyVisible ? '' : 'none';
       // Hide day headers that have no visible cards
       document.querySelectorAll('.day-header').forEach(header => {
         const day = header.dataset.day;
