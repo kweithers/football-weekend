@@ -18,15 +18,16 @@
     [data-competition="SA"]  { --c: 34 197 94; }   /* Italy: green    */
     [data-competition="FL1"] { --c: 59 130 246; }  /* France: blue    */
 
-    /* --t is excitement_score / 10: the league hue gets stronger as the score rises */
+    /* --t is excitement_score / 10 and --k is --t^2.5, so colour ramps steeply:
+       a 3/10 is barely tinted, 5/10 is soft, and 9-10 are fully saturated. */
     .match-card {
-      border-left-color: rgb(var(--c) / calc(0.25 + 0.75 * var(--t)));
-      background-color: rgb(var(--c) / calc(0.03 + 0.25 * var(--t) * var(--t)));
+      border-left-color: rgb(var(--c) / calc(0.12 + 0.88 * var(--k)));
+      background-color: rgb(var(--c) / calc(0.02 + 0.43 * var(--k)));
     }
-    .match-card[data-score="9"], .match-card[data-score="10"] {
-      box-shadow: 0 0 18px -4px rgb(var(--c) / calc(0.5 * var(--t)));
+    .match-card[data-score="8"], .match-card[data-score="9"], .match-card[data-score="10"] {
+      box-shadow: 0 0 24px -4px rgb(var(--c) / calc(0.7 * var(--k)));
     }
-    .match-card .bar.on { background-color: rgb(var(--c) / calc(0.45 + 0.55 * var(--t))); }
+    .match-card .bar.on { background-color: rgb(var(--c) / calc(0.2 + 0.8 * var(--k))); }
     .match-card .league-tag { color: rgb(var(--c)); }
   </style>
 </head>
@@ -87,7 +88,7 @@
           </h2>
         {% endif %}
 
-        <div class="match-card border-l-4 rounded-r-lg p-4 mb-4" style="--t: {{ m.excitement_score / 10 }}" data-competition="{{ m.competition }}" data-league="{{ m.league_name }}" data-day="{{ day }}" data-score="{{ m.excitement_score }}" data-kickoff="{{ m.kickoff }}">
+        <div class="match-card border-l-4 rounded-r-lg p-4 mb-4" style="--t: {{ m.excitement_score / 10 }}; --k: {{ '%.3f' % ((m.excitement_score / 10) ** 2.5) }}" data-competition="{{ m.competition }}" data-league="{{ m.league_name }}" data-day="{{ day }}" data-score="{{ m.excitement_score }}" data-kickoff="{{ m.kickoff }}">
           <div class="flex items-start justify-between gap-4">
             <div class="flex-1 min-w-0">
               <div class="flex items-center gap-2 flex-wrap mb-1">
