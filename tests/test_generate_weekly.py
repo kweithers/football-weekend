@@ -77,3 +77,49 @@ class TestSetEmptyWeekend:
         with open(empty_weekends_file) as f:
             data = json.load(f)
         assert data["2026-10-31"]["type"] == "error"
+
+
+class TestFallbackBreakMessage:
+    @pytest.mark.parametrize("date", ["2026-03-27", "2026-09-04", "2026-10-09", "2026-11-13"])
+    def test_international_window_months(self, date):
+        from generate_weekly import fallback_break_message, INTERNATIONAL_BREAK_MESSAGE
+        assert fallback_break_message(date) == INTERNATIONAL_BREAK_MESSAGE
+
+    @pytest.mark.parametrize("date", ["2026-06-12", "2026-07-17"])
+    def test_summer_months(self, date):
+        from generate_weekly import fallback_break_message, SUMMER_BREAK_MESSAGE
+        assert fallback_break_message(date) == SUMMER_BREAK_MESSAGE
+
+    def test_other_months_generic(self):
+        from generate_weekly import fallback_break_message, FALLBACK_BREAK_MESSAGE
+        assert fallback_break_message("2026-12-25") == FALLBACK_BREAK_MESSAGE
+
+
+class TestMainExplanationFailure:
+    @pytest.fixture()
+    def run_main(self, tmp_path, monkeypatch, empty_weekends_file):
+        import generate_weekly, pipeline, tools
+        monkeypatch.chdir(tmp_path)
+        monkeypatch.setattr(generate_weekly, "next_friday", lambda: "2026-11-13")
+        monkeypatch.setattr(pipeline, "run_pipeline", lambda: [])
+
+        def boom(*a):
+            raise RuntimeError("429 RESOURCE_EXHAUSTED")
+        monkeypatch.setattr(pipeline, "explain_empty_weekend", boom)
+        monkeypatch.setattr(tools, "_get_weekend_range", lambda: ("2026-11-13", "2026-11-16"))
+
+        def run():
+            generate_weekly.main()
+            with open(empty_weekends_file) as f:
+                return json.load(f)["2026-11-13"]
+        return run
+
+    def test_uses_date_based_fallback(self, run_main):
+        from generate_weekly import INTERNATIONAL_BREAK_MESSAGE
+        assert run_main() == {"type": "break", "message": INTERNATIONAL_BREAK_MESSAGE}
+
+    def test_keeps_existing_break_message(self, run_main, empty_weekends_file):
+        existing = {"type": "break", "message": "Nations League weekend."}
+        with open(empty_weekends_file, "w") as f:
+            json.dump({"2026-11-13": existing}, f)
+        assert run_main() == existing

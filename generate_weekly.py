@@ -20,6 +20,30 @@ def next_friday() -> str:
 EMPTY_WEEKENDS_FILE = "data/empty_weekends.json"
 ERROR_MESSAGE = "Something went wrong generating this week's rankings. Check back soon."
 FALLBACK_BREAK_MESSAGE = "No league fixtures this weekend."
+INTERNATIONAL_BREAK_MESSAGE = (
+    "No league football this weekend, most likely because of an international break."
+)
+SUMMER_BREAK_MESSAGE = "No league football this weekend: the leagues are on their summer break."
+
+
+def fallback_break_message(weekend_date: str) -> str:
+    """Best guess at why a weekend is empty, used when the search-grounded explanation fails.
+
+    Mid-season FIFA international windows fall in Sep, Oct, Nov and Mar; Jun/Jul is the off-season.
+    """
+    month = int(weekend_date[5:7])
+    if month in (3, 9, 10, 11):
+        return INTERNATIONAL_BREAK_MESSAGE
+    if month in (6, 7):
+        return SUMMER_BREAK_MESSAGE
+    return FALLBACK_BREAK_MESSAGE
+
+
+def get_empty_weekend(weekend_date: str) -> dict | None:
+    if not os.path.exists(EMPTY_WEEKENDS_FILE):
+        return None
+    with open(EMPTY_WEEKENDS_FILE) as f:
+        return json.load(f).get(weekend_date)
 
 
 def set_empty_weekend(weekend_date: str, entry: dict | None) -> None:
@@ -85,8 +109,14 @@ def main() -> None:
     try:
         message = explain_empty_weekend(*_get_weekend_range())
     except Exception as e:
-        print(f"Could not explain empty weekend: {e}")
-        message = FALLBACK_BREAK_MESSAGE
+        # Surface as a warning annotation on the Actions run so it isn't silently swallowed
+        print(f"::warning::Could not explain empty weekend: {e}")
+        existing = get_empty_weekend(weekend_date)
+        if existing and existing.get("type") == "break":
+            # Keep an earlier (or hand-written) explanation rather than downgrading it
+            print(f"Keeping existing message: {existing['message']}")
+            return
+        message = fallback_break_message(weekend_date)
     set_empty_weekend(weekend_date, {"type": "break", "message": message})
     print(f"No fixtures this week: {message}")
 
