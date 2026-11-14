@@ -177,3 +177,68 @@ class TestIndexEndpoint:
         )
         response = client.get("/")
         assert "Should not appear" not in response.text
+
+
+class TestPastWeeks:
+    def _write_weeks(self, data_dir):
+        (data_dir / "weekend_2026-10-24.json").write_text(json.dumps(SAMPLE_MATCHES[:1]))
+        (data_dir / "weekend_2026-10-31.json").write_text(json.dumps(SAMPLE_MATCHES))
+        (data_dir / "weekend_2026-11-07.json").write_text("[]")
+
+    def test_list_weekends_newest_first(self, client, data_dir):
+        self._write_weeks(data_dir)
+        assert client.get("/api/weekends").json() == ["2026-11-07", "2026-10-31", "2026-10-24"]
+
+    def test_api_weekend_by_date(self, client, data_dir):
+        self._write_weeks(data_dir)
+        response = client.get("/api/weekend/2026-10-24")
+        assert response.status_code == 200
+        assert response.json()[0]["home_team"] == "Arsenal"
+
+    def test_api_weekend_by_date_404(self, client, data_dir):
+        self._write_weeks(data_dir)
+        assert client.get("/api/weekend/2026-01-01").status_code == 404
+        assert client.get("/api/weekend/..%2Fsecret").status_code == 404
+
+    def test_week_page_renders_that_week(self, client, data_dir):
+        self._write_weeks(data_dir)
+        response = client.get("/week/2026-10-24")
+        assert response.status_code == 200
+        assert "Arsenal" in response.text
+        assert "Spurs" not in response.text
+        assert "Weekend of 24 Oct 2026" in response.text
+
+    def test_week_page_picker_and_neighbours(self, client, data_dir):
+        self._write_weeks(data_dir)
+        text = client.get("/week/2026-10-31").text
+        assert 'value="2026-10-31" selected' in text
+        assert 'href="/week/2026-10-24"' in text  # older
+        assert 'href="/week/2026-11-07"' in text  # newer
+
+    def test_week_page_404_for_unknown_week(self, client, data_dir):
+        self._write_weeks(data_dir)
+        assert client.get("/week/2026-01-01").status_code == 404
+
+    def test_index_has_past_weeks_link_and_no_picker(self, client, data_dir):
+        self._write_weeks(data_dir)
+        text = client.get("/").text
+        assert 'href="/history"' in text
+        assert 'id="week-picker"' not in text
+
+    def test_history_lists_all_weeks(self, client, data_dir):
+        self._write_weeks(data_dir)
+        (data_dir / "empty_weekends.json").write_text(
+            json.dumps({"2026-11-07": {"type": "break", "message": "International break."}})
+        )
+        response = client.get("/history")
+        assert response.status_code == 200
+        text = response.text
+        for d in ["2026-11-07", "2026-10-31", "2026-10-24"]:
+            assert f'href="/week/{d}"' in text
+        assert "International break." in text
+        assert "Spurs" in text  # top match of 2026-10-31
+
+    def test_history_empty(self, client):
+        response = client.get("/history")
+        assert response.status_code == 200
+        assert "No rankings generated yet." in response.text
