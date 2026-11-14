@@ -30,7 +30,9 @@ uv run uvicorn api:app --reload
 
 When football-data.org returns no fixtures for any league, `generate_weekly.py` asks Gemini (with Google Search grounding) why — summer break, international break, cup weekend, etc. — and the page shows that answer. If the pipeline fails instead (API error, or fixtures fetched but none ranked), no search is done and the page shows an error message; the workflow still commits that state but is marked as failed. Both are stored in `data/empty_weekends.json`, keyed by weekend date, and can be edited by hand.
 
-The `/api/weekend` endpoint returns the raw JSON if you want to consume it programmatically.
+Previous weeks can be browsed from the **Past Weeks** button in the top right (`/history`), which lists every generated weekend. Each week has its own page at `/week/YYYY-MM-DD` with a week picker and older/newer buttons.
+
+The `/api/weekend` endpoint returns the latest raw JSON if you want to consume it programmatically; `/api/weekends` lists all available weekend dates and `/api/weekend/YYYY-MM-DD` returns a specific week.
 
 ## GitHub Actions (weekly automation)
 

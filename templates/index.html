@@ -36,11 +36,33 @@
   </style>
 </head>
 <body class="min-h-screen font-mono">
-  <header class="border-b border-gray-800 py-6 px-4 text-center relative">
-    <a href="https://github.com/kweithers/football-weekend" target="_blank" class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-200 transition-colors text-xs">GitHub</a>
-    <h1 class="text-3xl font-bold tracking-tight">⚽ Weekend Football Ranker ⚽</h1>
-    <p class="text-sm text-gray-400 mt-2">Find the most exciting matches to watch this week.</p>
-  </header>
+{% set active_nav = 'history' if is_archive else None %}
+{% if is_archive %}{% set subtitle = "Looking back at " ~ weekend_label ~ "." %}{% endif %}
+{% include "_header.html" %}
+
+  {% if is_archive %}
+  <div class="max-w-3xl mx-auto px-4 pt-6 pb-1 flex flex-col items-center gap-2">
+    <span class="text-xs text-gray-500 uppercase tracking-widest">Pick a Week</span>
+    <div class="flex items-center gap-2">
+      {% if older_week %}
+      <a href="/week/{{ older_week }}" title="Older week" class="px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors">&larr; Older</a>
+      {% else %}
+      <span class="px-3 py-1 rounded text-xs font-semibold border border-gray-800 text-gray-700 cursor-not-allowed">&larr; Older</span>
+      {% endif %}
+      <select id="week-picker" aria-label="Pick a week" onchange="location.href = '/week/' + this.value" class="px-2 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors cursor-pointer">
+        {% for w in weeks %}
+        <option value="{{ w.date }}" {{ 'selected' if w.date == weekend_date }}>{{ w.label }}{{ ' (latest)' if loop.first }}</option>
+        {% endfor %}
+      </select>
+      {% if newer_week %}
+      <a href="/week/{{ newer_week }}" title="Newer week" class="px-3 py-1 rounded text-xs font-semibold border border-gray-600 bg-gray-800 text-gray-200 hover:bg-gray-700 transition-colors">Newer &rarr;</a>
+      {% else %}
+      <span class="px-3 py-1 rounded text-xs font-semibold border border-gray-800 text-gray-700 cursor-not-allowed">Newer &rarr;</span>
+      {% endif %}
+    </div>
+    <a href="/" class="text-xs text-gray-500 hover:text-gray-200 underline underline-offset-2 transition-colors">Back to this week</a>
+  </div>
+  {% endif %}
 
   {% if matches %}
   <div class="max-w-3xl mx-auto px-4 pt-6 pb-1 flex justify-center">
@@ -124,7 +146,7 @@
           </div>
         </div>
       {% endfor %}
-      <p id="no-bangers" class="text-center mt-12 text-gray-500" style="display: none">No bangers this weekend 😢</p>
+      <p id="no-bangers" class="text-center mt-12 text-gray-500" style="display: none">No bangers {{ "that" if is_archive else "this" }} weekend 😢</p>
     {% endif %}
   </main>
 
